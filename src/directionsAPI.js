@@ -1,6 +1,10 @@
-function calculateAndDisplayRoute(start,end) {
-	var start= "167 Victoria St W, Auckland, 1010";//document.getElementById('start').value;
-	var end= "Albert Park Bowen Lane, Auckland";//document.getElementById('end').value;
+function onMapsInit(){
+document.getElementById('go').onclick=calculateAndDisplayRoute;}
+
+
+function calculateAndDisplayRoute() {
+	var start=document.getElementById('start').value;
+	var end=document.getElementById('end').value;
         directionsService.route({
           origin: start,
           destination: end,
@@ -8,7 +12,7 @@ function calculateAndDisplayRoute(start,end) {
         }, function(response, status) {
           if (status === 'OK') {
 			  var directionsArray=[];
-			  window.response =response;
+			  window.response =response.routes;
 			  //value of this loop is 0 because its first value of response
 			  console.log(response);
             directionsDisplay.setDirections(response);
