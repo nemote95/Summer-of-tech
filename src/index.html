@@ -19,7 +19,7 @@
 
   <script type="text/javascript" src="MapsAPI.js"></script>
 
-  <script type="text/javascript" src="directionsAPI.js"></script>
+  <script type="text/javascript" src="DirectionsAPI.js"></script>
     
   </head>
   <body>
@@ -36,6 +36,7 @@
           zoom: 7,
           center: {lat: -40.9006, lng: 174.8860}
         });
+		
         directionsDisplay.setMap(map);
 	if (onMapsInit != null) onMapsInit();
       }
