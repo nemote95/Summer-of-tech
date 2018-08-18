@@ -1,17 +1,16 @@
-<html lang="en-US">
-
-<head>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-  <title>Default Page Title</title>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>TYRED</title>
 
   <link rel="shortcut icon" href="favicon.ico">
 
   <link rel="icon" href="favicon.ico">
 
   <link rel="stylesheet" type="text/css" href="styles.css">
-
+	
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <script type="text/javascript" src="ElevationAPI.js"></script>
@@ -20,14 +19,40 @@
 
   <script type="text/javascript" src="MapsAPI.js"></script>
 
-</head>
+  <script type="text/javascript" src="DirectionsAPI.js"></script>
+    
+  </head>
+  <body>
+    Start: <input type="text" id="start">
+    End: <input type="text" id="end">
+    <button type="button" id="go">GO!</button>
+    <div id="map" style="height:200px"></div>
+  </body>
+  
+  <script>
+      function initMap() {
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+  	elevator = new google.maps.ElevationService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: -40.9006, lng: 174.8860}
+        });
+		
+        directionsDisplay.setMap(map);
+	if (onMapsInit != null) onMapsInit();
+      }
 
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&callback=initMap">
+    </script>
 
+  <span id="outputCalories"> 
+    Calories:
+    <script src = "Effort.js">
+      
+    </script>
 
-<body>
-
-
-
-</body>
-
+  </span>
 </html>
