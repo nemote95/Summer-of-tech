@@ -10,15 +10,15 @@ function getEnergyExpenditure(distance, changeInElevation) {
 	let mass = 75 + 8; // Assuming average human weight of 75kg and bike weight of 8kg
 
 	// find the energy expended by elevation change
-	let angle = (changeInElevation > 0) ? 0 : Math.atan(changeInElevation/distance);
-	let gravityForce = 9.81 * mass * Math.cos(angle);
+	let angle = (changeInElevation < 0) ? 0 : Math.atan(changeInElevation/distance);
+	let gravityForce = 9.81 * mass * Math.sin(angle);
 
 	// Find the energy expended by biking for that distance
-	distance = Math.sqrt(distance**2 + changeInElevation**2);
-	let normalForce = 9.81 * mass * Math.sin(angle);
-	rollingResistanceForce = 0.008 * normalForce;
+	let normalForce = 9.81 * mass * Math.cos(angle);
+	rollingResistanceForce = 0.02 * normalForce;
 	
 	totalThrustForce = rollingResistanceForce + gravityForce;
+	distance = Math.sqrt(distance**2 + changeInElevation**2);
 	workDone = totalThrustForce * distance * 0.001; // Joules/1000 = calories
 
 	return workDone;
