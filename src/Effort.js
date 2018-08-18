@@ -6,7 +6,7 @@
 // Returns:
 //   workDone in calories
 function getEnergyExpenditure(distance, changeInElevation) {
-	if (changeElevation < 0) return 0;
+	if (changeInElevation < 0) return 0;
 	let mass = 75 + 8; // Assuming average human weight of 75kg and bike weight of 8kg
 
 	// find the energy expended by elevation change
