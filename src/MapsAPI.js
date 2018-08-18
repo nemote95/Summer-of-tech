@@ -2,7 +2,7 @@ function initMap(mapElement,directionsDisplay) {
 
 	var map = new google.maps.Map(mapElement, {
 	  zoom: 7,
-	  center: {lat: 41.85, lng: -87.65}
+	  center: {lat: -40.9006, lng: 174.8860}
 	});
 	directionsDisplay.setMap(map); 
   }
@@ -11,7 +11,7 @@ function  calculateAndDisplayRoute(directionsService, directionsDisplay,start,en
         directionsService.route({
           origin: start,
           destination: end,
-          travelMode: 'RIDING'
+          travelMode: 'CYCLING'
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
