@@ -1,23 +1,14 @@
-function initMap(mapElement,directionsDisplay) {
-
-	var map = new google.maps.Map(mapElement, {
-	  zoom: 7,
-	  center: {lat: -40.9006, lng: 174.8860}
-	});
-	directionsDisplay.setMap(map); 
-  }
-	  
-function  calculateAndDisplayRoute(directionsService, directionsDisplay,start,end) {
+function calculateAndDisplayRoute(directionsService, directionsDisplay,start,end) {
         directionsService.route({
-          origin: start,
-          destination: end,
-          travelMode: 'CYCLING'
+          origin: "Spark New Zealand (Corporate Office) Victoria Street West, Auckland",
+          destination: "Spark Business Auckland Ponsonby Road, Grey Lynn, Auckland",
+          travelMode: 'BICYCLING'
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
+			console.log(response);
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
       }
-	  
