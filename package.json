@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "master -d src"
+    "deploy": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
