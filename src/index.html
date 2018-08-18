@@ -23,10 +23,12 @@
     
   </head>
   <body>
-    <input type="text" id="start">
-	<input type="text" id="end">
-    <div id="map" style="height:100px"></div>
+    Start: <input type="text" id="start">
+    End: <input type="text" id="end">
+    <button type="button">GO!</button>
+    <div id="map" style="height:200px"></div>
   </body>
+  
   <script>
       function initMap() {
         directionsService = new google.maps.DirectionsService;
@@ -44,4 +46,12 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&callback=initMap">
     </script>
+
+  <span id="outputCalories"> 
+    Calories:
+    <script src = "Effort.js">
+      
+    </script>
+
+  </span>
 </html>
