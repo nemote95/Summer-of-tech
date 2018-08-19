@@ -26,6 +26,8 @@ html, body {
 	margin: 10px 10px 0;
 	border-radius: 7px;
 	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
 
 aside {
@@ -45,7 +47,10 @@ aside {
 }
 
 .container {
+	background-color: #90CAF9;
 	display: flex;
+	margin: 10px 10px 0;
+	border-radius: 7px;
 }
 
 .map {
@@ -56,6 +61,12 @@ aside {
 	flex: 1;
 }
 
+.userInput {
+	height: 30px;
+	width: 400px;
+	font-size: 100%;
+}
+
 @media only screen and (max-width: 600px) {
 	.container {
 		flex-direction: column;
@@ -63,6 +74,9 @@ aside {
 
 	.cardDetails {
 		flex-direction: column;
+		background-color: #90CAF9;
+		margin: 10px 10px 0;
+		border-radius: 7px;
 	}
 
 	.details {
