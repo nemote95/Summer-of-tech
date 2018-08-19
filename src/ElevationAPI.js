@@ -7,7 +7,6 @@ function getDirectionalAPIData(path, distance, time) {
 
 function processElevationData(elevations, status, distance, timeTotal) {
 	if (status != 'OK') alert("Panic - unable to retrieve elevations!"); // Panic
-
 	let firstElevation = elevations[0].elevation;
 	elevations[0].normalised = 0;
 	let distancePerStep = distance / elevations.length;
@@ -38,8 +37,9 @@ function processElevationData(elevations, status, distance, timeTotal) {
     chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, options);
 
-    
-    document.querySelector(".carddistance").innerHTML = "Distance: " + distance + " metres";
+
+    document.querySelector(".carddistance").innerHTML = "Distance: " + (distance/1000) + " km";
 		document.querySelector(".cardEnergy").innerHTML = "Energy: " + totalEffort + " calories";
-		document.querySelector(".cardTime").innerHTML = "Time: " + timeTotal + " minutes";
+
+		document.querySelector(".cardTime").innerHTML = "Time: " + Math.round(timeTotal) + " minutes";
 }
