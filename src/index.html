@@ -27,6 +27,15 @@
 	 End: <input type="text" id="end"> 
     <button type="button" id="go">GO!</button>
     <div id="map" style="height:200px"></div>
+	<div class="infowindow-content" id="infowindow_content_start">
+      <span class="place-name"  ></span><br>
+      <span class="place-address" ></span>
+    </div>
+	
+	<div class="infowindow-content" id="infowindow_content_end">
+      <span class="place-name"  ></span><br>
+      <span class="place-address" ></span>
+    </div>
 
     <div class="card">
       <aside class="cardMap">Map</aside>
@@ -47,9 +56,25 @@
   	    elevator = new google.maps.ElevationService;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
-          center: {lat: -40.9006, lng: 174.8860}
+          center: {lat: -36.8485, lng: 174.7633}
         });
         directionsDisplay.setMap(map);
+		
+		var start = document.getElementById('start');
+		var end = document.getElementById('end');
+		var options = {
+		types: ['address'],
+		location: {lat: -36.8485, lng: 174.7633},
+		radius: 10000,
+		componentRestrictions: {country: "nz"},
+		strictBounds: true
+		
+		};
+		var infowindowContent = document.getElementById('infowindow_content_start');
+		var infowindowContent_end = document.getElementById('infowindow_content_end');
+		autocomplete(start,options, infowindowContent);
+		autocomplete(end,options, infowindowContent_end);
+
         
         google.charts.load('current', {packages: ['corechart', 'line']});
 
@@ -67,11 +92,45 @@
         }, 1000);
 
 	      if (onMapsInit != null) onMapsInit();
+		function autocomplete(input,options,infowindowContent){
+		
+
+        var autocomplete = new google.maps.places.Autocomplete(input,options);
+        autocomplete.bindTo('bounds', map);
+
+        // Set the data fields to return when the user selects a place.
+        autocomplete.setFields(
+            ['address_components', 'geometry', 'name']);
+
+        var infowindow = new google.maps.InfoWindow();
+        infowindow.setContent(infowindowContent);
+        
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+          infowindowContent.children['place-address'].textContent = address;
+        });
+
+      }
       }
 
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&libraries=places&callback=initMap">
     </script>
 
       <span id="outputCalories"> 
