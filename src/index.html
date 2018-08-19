@@ -9,24 +9,29 @@
 
   <link rel="icon" href="favicon.ico">
 
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" type="text/css" href="styles.css">
-	
+
   <script type="text/javascript" src="ElevationAPI.js"></script>
 
   <script type="text/javascript" src="Effort.js"></script>
 
   <script type="text/javascript" src="MapsAPI.js"></script>
 
-  <script type="text/javascript" src="DirectionsAPI.js"></script>
+  <script type="text/javascript" src="directionsAPI.js"></script>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+
   </head>
-  <body>
-    Start: <input type="text" id="start">
-	 End: <input type="text" id="end"> 
-    <button type="button" id="go">GO!</button>
-    <div id="map" style="height:200px"></div>
+  <body style="background-attachment: #A5D6A7;">
+    <div class="head">
+        <img src="frontbikelogo.png" alt="Logo">
+        <div class="titleCard">Get to your place with the least amount of ENERGY!<br></div>
+        <input class="userInput" type="text" id="start" size="20" value="Start"><br>
+        <input class="userInput" type="text" id="end" value="End"><br>
+        <center><button class = "button" type="button" id="go">GO</button></center>
+    </div>
 	<div class="infowindow-content" id="infowindow_content_start">
       <span class="place-name"  ></span><br>
       <span class="place-address" ></span>
@@ -37,18 +42,18 @@
       <span class="place-address" ></span>
     </div>
 
-    <div class="card">
-      <aside class="cardMap">Map</aside>
-      <aside class="cardGraph"><div id="chart_div"></div></aside>
-      <footer class="cardDetails">
-        <div class="carddistance">Distance:</div>
-        <div class="cardEnergy">Energy:</div>
-        <div class="cardTime">Time:</div>
-      </footer>
+    <div class="container">
+      <aside class="map"><div id="map"></div></aside>
+      <aside class="graph"><div id="chart_div"></div></aside>
+    </div>
+    <div class="cardDetails">
+      <div class="details" id="cardDistance">Distance:</div>
+      <div class="details" id="cardEnergy">Energy:</div>
+      <div class="details" id="cardTime">Time:</div>
     </div>
 
   </body>
-  
+
   <script>
       function initMap() {
         directionsService = new google.maps.DirectionsService;
@@ -78,18 +83,12 @@
         
         google.charts.load('current', {packages: ['corechart', 'line']});
 
-        distance = 50;
-        path = [
-          {lat: 36.579, lng: -118.292},  // Mt. Whitney
-          {lat: 36.606, lng: -118.0638},  // Lone Pine
-          {lat: 36.433, lng: -117.951},  // Owens Lake
-          {lat: 36.588, lng: -116.943},  // Beatty Junction
-          {lat: 36.34, lng: -117.468},  // Panama Mint Springs
-          {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
+        if (onMapsInit != null) onMapsInit();
+      };
 
-        setTimeout(function() {
-          getDirectionalAPIData(path, distance);
-        }, 1000);
+      window.addEventListener("resize", function(event) {
+        initMap();
+      })
 
 	      if (onMapsInit != null) onMapsInit();
 		function autocomplete(input,options,infowindowContent){
@@ -133,11 +132,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&libraries=places&callback=initMap">
     </script>
 
-      <span id="outputCalories"> 
-    Calories:
-    <script src = "Effort.js">
-      
-    </script>
+      <span id="outputCalories">
 
   </span>
 </html>
