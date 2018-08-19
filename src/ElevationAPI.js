@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-function Array_of_Elevation(results){
-    var elevation_arrays = [];
-    for(var elevaton of results){
-        elevation_arrays.push(results.elevation);
-    }
-    return elevation_arrays;
-}
-
-
-function Elevation_API(route){
-    URL_Base = "https://maps.googleapis.com/maps/api/elevation/json?path=";
-    api_Key = "&key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8";
-
-    for(var step of route.legs.steps){
-        URL_Base += step.start_location + "|";
-    }
-    URL_Base += step.end_location + api_Key;
-    return Array_of_Elevation(URL_Base);  
-=======
 function getDirectionalAPIData(path, distance) {
 	elevator.getElevationAlongPath({
           'path': path,
@@ -58,5 +38,4 @@ function processElevationData(elevations, status, distance) {
     chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, options);
     document.querySelector(".cardEnergy").innerHTML = "Energy: " + totalEffort + " calories";
->>>>>>> 94f4b2712e4992793dae5e9b83110b93273080fe
 }
