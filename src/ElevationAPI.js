@@ -16,16 +16,16 @@ function Elevation_API(route){
         URL_Base += step.start_location + "|";
     }
     URL_Base += step.end_location + api_Key;
-    return Array_of_Elevation(URL_Base);  
+    return Array_of_Elevation(URL_Base);
 =======
-function getDirectionalAPIData(path, distance) {
+function getDirectionalAPIData(path, distance, time) {
 	elevator.getElevationAlongPath({
           'path': path,
           'samples': 512
-        }, ((elevations, status) => processElevationData(elevations, status, distance)));
+        }, ((elevations, status) => processElevationData(elevations, status, distance, time)));
 }
 
-function processElevationData(elevations, status, distance) {
+function processElevationData(elevations, status, distance, timeTotal) {
 	if (status != 'OK') alert("Panic - unable to retrieve elevations!"); // Panic
 
 	let firstElevation = elevations[0].elevation;
@@ -57,6 +57,9 @@ function processElevationData(elevations, status, distance) {
       };
     chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, options);
-    document.querySelector(".cardEnergy").innerHTML = "Energy: " + totalEffort + " calories";
->>>>>>> 94f4b2712e4992793dae5e9b83110b93273080fe
+
+    
+    document.querySelector(".carddistance").innerHTML = "Distance: " + distance + " metres";
+		document.querySelector(".cardEnergy").innerHTML = "Energy: " + totalEffort + " calories";
+		document.querySelector(".cardTime").innerHTML = "Time: " + timeTotal + " minutes";
 }

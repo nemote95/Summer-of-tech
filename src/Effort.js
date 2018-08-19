@@ -16,10 +16,10 @@ function getEnergyExpenditure(distance, changeInElevation) {
 	// Find the energy expended by biking for that distance
 	let normalForce = 9.81 * mass * Math.cos(angle);
 	rollingResistanceForce = 0.02 * normalForce;
-	
+
 	totalThrustForce = rollingResistanceForce + gravityForce;
 	distance = Math.sqrt(distance**2 + changeInElevation**2);
 	workDone = totalThrustForce * distance * 0.001; // Joules/1000 = calories
 
-	return workDone;
+	return Math.round(workDone);
 }
