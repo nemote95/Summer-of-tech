@@ -8,3 +8,23 @@ html, body {
         padding: 0;
       }
       
+.card {
+	background-color: #cccccc;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 7px;
+}
+
+aside {
+	display: inline-block;
+	width: 47%;
+	margin: 10px 1.4%;
+	background-color: #aaaaaa;
+}
+
+.cardDetails div {
+	display: inline-block;
+	width: 33%;
+	margin: 5px auto;
+	text-align: center;
+}

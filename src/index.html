@@ -18,27 +18,54 @@
   <script type="text/javascript" src="MapsAPI.js"></script>
 
   <script type="text/javascript" src="DirectionsAPI.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
   </head>
   <body>
     Start: <input type="text" id="start">
-    End: <input type="text" id="end">
+	 End: <input type="text" id="end"> 
     <button type="button" id="go">GO!</button>
     <div id="map" style="height:200px"></div>
+
+    <div class="card">
+      <aside class="cardMap">Map</aside>
+      <aside class="cardGraph"><div id="chart_div"></div></aside>
+      <footer class="cardDetails">
+        <div class="carddistance">Distance:</div>
+        <div class="cardEnergy">Energy:</div>
+        <div class="cardTime">Time:</div>
+      </footer>
+    </div>
+
   </body>
-  
   <script>
       function initMap() {
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
-  	elevator = new google.maps.ElevationService;
+  	    elevator = new google.maps.ElevationService;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
           center: {lat: -40.9006, lng: 174.8860}
         });
-		
         directionsDisplay.setMap(map);
-	if (onMapsInit != null) onMapsInit();
+        
+        google.charts.load('current', {packages: ['corechart', 'line']});
+
+        distance = 50;
+        path = [
+          {lat: 36.579, lng: -118.292},  // Mt. Whitney
+          {lat: 36.606, lng: -118.0638},  // Lone Pine
+          {lat: 36.433, lng: -117.951},  // Owens Lake
+          {lat: 36.588, lng: -116.943},  // Beatty Junction
+          {lat: 36.34, lng: -117.468},  // Panama Mint Springs
+          {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
+
+        setTimeout(function() {
+          getDirectionalAPIData(path, distance);
+        }, 1000);
+
+	      if (onMapsInit != null) onMapsInit();
       }
 
     </script>
@@ -46,7 +73,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&callback=initMap">
     </script>
 
-  <span id="outputCalories"> 
+      <span id="outputCalories"> 
     Calories:
     <script src = "Effort.js">
       
