@@ -25,10 +25,11 @@ function calculateAndDisplayRoute() {
 				}
               }
 			var total_distance=response.routes[0].legs[0].distance.value;
-			
+			var total_time= (response.routes[0].legs[0].duration.value)/60;
+
             directionsDisplay.setDirections(response);
 			//calling elevation API
-			getDirectionalAPIData(directionsArray, total_distance);
+			getDirectionalAPIData(directionsArray, total_distance, total_time);
           } else {
             window.alert('Directions request failed due to ' + status);
           }
