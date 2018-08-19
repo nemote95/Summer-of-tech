@@ -38,7 +38,7 @@ function processElevationData(elevations, status, distance, timeTotal) {
     chart.draw(data, options);
     console.log(workDone);
 
-    document.querySelector("#carddistance").innerHTML = "Distance: " + (Math.round(distance/100)/10) + " km";
+    document.querySelector("#cardDistance").innerHTML = "Distance: " + (Math.round(distance/100)/10) + " km";
 		document.querySelector("#cardEnergy").innerHTML = "Energy: " + Math.round(totalEffort) + " calories";
 		document.querySelector("#cardTime").innerHTML = "Time: " + Math.round(timeTotal) + " minutes";
 }
