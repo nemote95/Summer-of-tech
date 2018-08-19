@@ -20,6 +20,5 @@ function getEnergyExpenditure(distance, changeInElevation) {
 	totalThrustForce = rollingResistanceForce + gravityForce;
 	distance = Math.sqrt(distance**2 + changeInElevation**2);
 	workDone = totalThrustForce * distance * 0.001; // Joules/1000 = calories
-
-	return Math.round(workDone);
+	return workDone;
 }

@@ -36,10 +36,9 @@ function processElevationData(elevations, status, distance, timeTotal) {
       };
     chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, options);
+    console.log(workDone);
 
-
-    document.querySelector(".carddistance").innerHTML = "Distance: " + (distance/1000) + " km";
-		document.querySelector(".cardEnergy").innerHTML = "Energy: " + totalEffort + " calories";
-
-		document.querySelector(".cardTime").innerHTML = "Time: " + Math.round(timeTotal) + " minutes";
+    document.querySelector("#carddistance").innerHTML = "Distance: " + (Math.round(distance/100)/10) + " km";
+		document.querySelector("#cardEnergy").innerHTML = "Energy: " + Math.round(totalEffort) + " calories";
+		document.querySelector("#cardTime").innerHTML = "Time: " + Math.round(timeTotal) + " minutes";
 }
