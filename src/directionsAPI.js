@@ -16,6 +16,7 @@ function calculateAndDisplayRoute() {
 			  window.response =response;
 			  //value of this loop is 0 because its first value of response
 			  var route_number=0;
+			  
 		
 			for (var step of response.routes[0].legs[0].steps){
 				for(var path of step.path){
@@ -23,8 +24,12 @@ function calculateAndDisplayRoute() {
 				
 				}
               }
-			  console.log(directionsArray);
+			var total_distance=response.routes[0].legs[0].distance.value;
+			var total_time= (response.routes[0].legs[0].duration.value)/60;
+
             directionsDisplay.setDirections(response);
+			//calling elevation API
+			getDirectionalAPIData(directionsArray, total_distance, total_time);
           } else {
             window.alert('Directions request failed due to ' + status);
           }
