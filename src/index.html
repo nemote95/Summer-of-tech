@@ -22,20 +22,22 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   </head>
-  <body>
-    Start: <input type="text" id="start">
-	 End: <input type="text" id="end">
-    <button type="button" id="go">GO!</button>
-    <div id="map" style="height:200px"></div>
+  <body style="background-attachment: #A5D6A7;">
+    <div class="card1">
+        <center><font size="40" >Get to your place with the least amount of ENERGY!<br></font></center>
+        <center><input type="text" id="start" size="20" value="Start"><br></center>
+        <center><input type="text" id="end" value="End"><br></center>
+        <center><button type="button" class = "buttonSize" id="go"><font size="20">GO</font></button></center>
+    </div>
 
-    <div class="card">
-      <aside class="cardMap">Map</aside>
-      <aside class="cardGraph"><div id="chart_div"></div></aside>
-      <footer class="cardDetails">
-        <div class="carddistance">Distance:</div>
-        <div class="cardEnergy">Energy:</div>
-        <div class="cardTime">Time:</div>
-      </footer>
+    <div class="container">
+      <aside class="map"><div id="map"></div></aside>
+      <aside class="graph"><div id="chart_div"></div></aside>
+    </div>
+    <div class="cardDetails">
+      <div class="details" id="cardDistance">Distance:</div>
+      <div class="details" id="cardEnergy">Energy:</div>
+      <div class="details" id="cardTime">Time:</div>
     </div>
 
   </body>
@@ -54,7 +56,11 @@
         google.charts.load('current', {packages: ['corechart', 'line']});
 
         if (onMapsInit != null) onMapsInit();
-      }
+      };
+
+      window.addEventListener("resize", function(event) {
+        initMap();
+      })
 
     </script>
     <script async defer
@@ -62,10 +68,6 @@
     </script>
 
       <span id="outputCalories">
-    Calories:
-    <script src = "Effort.js">
-
-    </script>
 
   </span>
 </html>
