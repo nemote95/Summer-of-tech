@@ -6,19 +6,24 @@
 html, body {
         height: 100%;
         margin: 0;
-        padding: 0;
-      }
+				padding: 0;
+				font-family: 'Roboto', sans-serif;
+			}
+			
+.titleCard{
+	font-size: 20px;
+	text-align: center;
+}
       
 .card {
-	background-color: #e8f5e9;
+	background-color: #90CAF9;
 	width: 80%;
 	margin: 0 auto;
 	border-radius: 7px;
 }
-.card1 {
-	background-color: #e8f5e9;
-	width: 80%;
-	margin: 0 auto;
+.head {
+	background-color: #90CAF9;
+	margin: 10px 10px 0;
 	border-radius: 7px;
 	align-items: center;
 }
@@ -37,12 +42,6 @@ aside {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-}
-
-
-.buttonSize{
-	height:100px;
-	width:100px;
 }
 
 .container {
@@ -75,4 +74,9 @@ aside {
 
 .button{
 	border-radius: 8px;
+	height: 50px;
+	width: 100px;
+	background-color: #E3F2FD;
+	font-size: 30px;
+
 }
