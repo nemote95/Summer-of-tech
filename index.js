@@ -13,5 +13,5 @@ app.get('/test', (req, res) => {
     res.render('index',{url: url})
 })
 
-app.listen(9001)
+app.listen(process.env.PORT || 5001)
 
