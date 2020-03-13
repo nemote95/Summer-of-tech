@@ -1,6 +1,7 @@
 #map {
-				height: 100%;
-				min-height: 200px;
+		height: 100%;
+		min-height: 400px;
+        border-radius: 5px;
       }
       /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -20,32 +21,34 @@ html, body {
 }
       
 .card {
-	background-color: #90CAF9;
+	background-color: #489CAA;
 	width: 80%;
 	margin: 0 auto;
 	border-radius: 7px;
 	
 }
 .head {
-	background-color: #90CAF9;
+	background-color: #489CAA;
 	margin: 10px 10px 0;
 	border-radius: 7px;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+    padding : 10px;
 }
 
 aside {
 	margin: 10px 1.4%;
-	background-color: #f5f5f5;
+	background-color: white;
 }
 
 .cardDetails {
 	display: flex;
-	background-color: #90CAF9;
-	margin: 10px 10px 0;
+	background-color: #489CAA;
+	margin: 10px;
 	border-radius: 7px;
 	font-size: 20px;
+    padding: 10px;
 }
 
 .details {
@@ -53,21 +56,26 @@ aside {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+    color: white;
 }
 
 .container {
-	background-color: #90CAF9;
+	background-color: #489CAA;
 	display: flex;
 	margin: 10px 10px 0;
 	border-radius: 7px;
+    padding : 10px;
+    color: white;
 }
 
 .map {
 	flex: 1;
+    border-radius: 5px;
 }
 
 .graph {
 	flex: 1;
+    border-radius: 5px;
 }
 
 .userInput {
@@ -76,9 +84,20 @@ aside {
 	font-size: 100%;
 	display: flex;
 	font-style: italic;
-	background-color: #f5f5f5;
 	border-radius: 7px;
+    margin: 5px;
+    border: white;
+    padding: 5px;
 
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3A3E42;
+  color: white;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -89,24 +108,29 @@ aside {
 	.cardDetails {
 		flex-direction: column;
 		background-color: #90CAF9;
-		margin: 10px 10px 0;
+		margin: 10px;
 		border-radius: 7px;
+        color: white;
+        padding: 10px;
+
 	}
 
 	.details {
 		align-items: flex-start;
 		padding-left: 10px;
+        color: white;
 	}
 
 }
 
 .button{
 	border-radius: 8px;
-	height: 50px;
-	width: 100px;
-	background-color: #E3F2FD;
-	font-size: 30px;
-	margin-bottom: 10px;
+	height: 45px;
+	width: 45px;
+	background-color:white;
+    border:white;
+	font-size: 20px;
+	margin: 10px;
 }
 
 ::value{
