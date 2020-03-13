@@ -41,7 +41,7 @@
       <span class="place-name"  ></span><br>
       <span class="place-address" ></span>
     </div>
-	
+
 	<div class="infowindow-content" id="infowindow_content_end">
       <span class="place-name"  ></span><br>
       <span class="place-address" ></span>
@@ -69,23 +69,25 @@
           center: {lat: -41.838875, lng: 171.7799}
         });
         directionsDisplay.setMap(map);
-		
+
 		var start = document.getElementById('start');
 		var end = document.getElementById('end');
 		var options = {
 		types: ['address'],
-		
+
 		componentRestrictions: {country: "nz"},
 		strictBounds: true
-		
+
 		};
 		var infowindowContent = document.getElementById('infowindow_content_start');
 		var infowindowContent_end = document.getElementById('infowindow_content_end');
 //		autocomplete(start,options, infowindowContent);
 //		autocomplete(end,options, infowindowContent_end);
-/*		
+
+		/*
 		function autocomplete(input, options,infowindow){
-		var autocomplete = new google.maps.places.Autocomplete(input,options,infowindowContent);
+
+    var autocomplete = new google.maps.places.Autocomplete(input,options,infowindowContent);
         autocomplete.bindTo('bounds', map);
 
         // Set the data fields to return when the user selects a place.
@@ -108,7 +110,7 @@
             window.alert("No details available for input: '" + place.name + "'");
             return;
           }
-*/
+
 
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
@@ -133,9 +135,10 @@
           infowindow.open(map, marker);
         });
 }
-		
-		
-        
+*/
+
+
+
         google.charts.load('current', {packages: ['corechart', 'line']});
 
         if (onMapsInit != null) onMapsInit();
@@ -146,8 +149,8 @@
       })
 
 	      if (onMapsInit != null) onMapsInit();
-		  
-      
+
+
 
     </script>
     <script async defer
