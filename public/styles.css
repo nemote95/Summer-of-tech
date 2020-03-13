@@ -1,6 +1,6 @@
 #map {
 		height: 100%;
-		min-height: 400px;
+		min-height: 300px;
         border-radius: 5px;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -51,6 +51,8 @@ aside {
 	border-radius: 7px;
 	font-size: 20px;
     padding: 10px;
+    margin-bottom: 30px;
+    height: 100%;
 }
 
 .details {
@@ -83,7 +85,7 @@ aside {
 
 .userInput {
 	height: 30px;
-	width: 300px;
+	width: 250px;
 	font-size: 100%;
 	display: flex;
 	font-style: italic;
@@ -94,11 +96,16 @@ aside {
 
 }
 .footer {
+  width: 100%
+  position: absolute;
+  left: 0;
+  bottom: 0;
   height: 50px; 
   background-color: #3A3E42;
   color: white;
   text-align: center;
   padding: 5px;
+
 }
 
 @media only screen and (max-width: 600px) {
