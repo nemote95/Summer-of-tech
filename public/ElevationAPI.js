@@ -29,8 +29,9 @@ function processElevationData(elevations, status, distance, timeTotal) {
 	data.addRows(dataArray);
 
 	var options = {
-		legend: "none",
-		backgroundColor: "#cccccc",
+
+		backgroundColor: "white",
+        height: 300,
         hAxis: {title: 'Distance'},
         vAxis: {title: 'Elevation'}
       };
