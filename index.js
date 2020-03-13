@@ -7,9 +7,9 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => {
-    DateTime a = new DateTime(2020, 03, 12, 13, 43, 00);
-    DateTime b = Date.now();
-    if (b.Subtract(a).TotalMinutes<362*24*60){
+    start = new DateTime(2020, 03, 12, 13, 43, 00);
+    now = Date.now();
+    if (now-start<362*24*60*60*1000){
         url = "https://maps.googleapis.com/maps/api/js?key="+process.env.API_KEY+"&libraries=places&callback=initMap";}
     else{ url=''}
     res.render('index',{url: url})
